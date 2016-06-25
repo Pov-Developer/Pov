@@ -1,0 +1,76 @@
+<div class="card card-form">
+    <div class="item clickable-divider item-icon-right" ui-sref="editSurveyInfo">
+        Survey Info
+        <i class="icon ion-arrow-right-c"></i>
+    </div>
+    <div class="item item-body survey-info">
+
+        <div class="row">
+            <div class="col"><h2 class="form-title text-right">Name:</h2></div>
+            <div class="col col-67">
+                <p>{{survey.name}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col"><h2 class="form-title text-right">Description:</h2></div>
+            <div class="col col-67">
+                <p>{{survey.description}}</p>
+
+                <p ng-if="!survey.description">None</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col"><h2 class="form-title text-right">Loops:</h2></div>
+            <div class="col col-67">
+                <p>
+                            <span ng-repeat="loop in survey.loops">{{loop.name}}<span
+                                    ng-if="$index + 1 != survey.loops.length">,</span>
+                        </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col"><h2 class="form-title text-right">Attributes:</h2></div>
+            <div class="col col-67">
+                <p>
+                            <span ng-repeat="attribute in survey.attributes"
+                                  ng-class="{'bold': attribute.required}">{{attribute.name}}<span
+                                    ng-if="$index + 1 != survey.attributes.length">, </span>
+                            </span>
+                </p>
+
+                <p ng-if="survey.attributes.length == 0">None</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="item clickable-divider item-icon-right" ng-click="options.editing = !options.editing ">
+        Questions
+        <i class="icon ion-edit"></i>
+    </div>
+    <ion-list show-delete="options.editing" show-reorder="options.editing">
+        <ion-item ng-repeat="question in survey.questions"
+                  item="item"
+                  class="item-remove-animate item-text-wrap" ui-sref="editQuestion({questionNumber: $index})">
+            <div class="review-item">
+                <h2 ng-class="{'require': question.required}"><span class="circle-number">{{$index + 1}}</span>{{question.title}}
+                </h2>
+
+                <div ng-switch="question.questionType">
+                    <review-text-box ng-switch-when="textBox" question="question"></review-text-box>
+                    <review-ranking ng-switch-when="ranking" question="question"></review-ranking>
+                    <review-multiple-choice ng-switch-when="multipleChoice"
+                                            question="question"></review-multiple-choice>
+                    <review-slider-scale ng-switch-when="sliderScale" question="question"></review-slider-scale>
+                    <review-number-box ng-switch-when="numberBox" question="question"></review-number-box>
+                </div>
+                <ion-delete-button class="ion-minus-circled" ng-click="onQuestionDelete(question)"></ion-delete-button>
+                <ion-reorder-button class="ion-navicon"
+                                    on-reorder="moveQuestion(question, $fromIndex, $toIndex)"></ion-reorder-button>
+            </div>
+        </ion-item>
+    </ion-list>
+</div>

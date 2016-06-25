@@ -1,0 +1,42 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center" class="bar-energized">
+        <div class="buttons">
+            <button class="button button-clear button-icon ion-android-close" ng-click="closeSurveyInfoModal()"></button>
+        </div>
+        <h1 class="title">Survey Info</h1>
+    </ion-header-bar>
+    <ion-content class="">
+        <ion-slide-box class="profile-header energized-background" on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <div id="profile-slide-home">
+                    <img class="circle-border" src="img/falcons.png">
+
+                    <h3>Atlanta Falcons</h3>
+
+                    <p>152,000 Members &middot Since 11/20/2015</p>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="profile-slide-info padding">
+                    <p>We are the Atlanta Falcons group. Here you will receive surveys about the Atlanta Falcons.</p>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+        <div class="card">
+            <div class="item item-divider">
+                Description
+            </div>
+            <div class="item item-text-wrap">
+                Lorem ipsum dolor sit amet, mauris eget pellentesque lorem dis. Dictum pellentesque venenatis. Duis eget erat morbi dapibus.
+            </div>
+            <div class="item item-divider">
+                Created By
+            </div>
+            <div class="item item-avatar">
+                <img src="img/jon_snow.jpg">
+                <h2>Jon Snow</h2>
+                <p>November 08, 2015</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

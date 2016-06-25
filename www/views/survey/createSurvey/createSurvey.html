@@ -1,0 +1,10 @@
+<ion-view view-title="Create Survey">
+    <ion-content class="padding" ng-class="{'has-footer' : platform != 'android'}">
+        <div class="card card-form">
+            <create-survey-form survey-info="surveyInfo"></create-survey-form>
+            <div class="item">
+                <button class="button button-block button-energized" ng-click="startSurvey()">Start Adding Questions</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

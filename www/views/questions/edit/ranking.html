@@ -1,0 +1,56 @@
+<div class="card card-form">
+    <div class="item item-divider">
+        Question
+    </div>
+    <div class="item">
+        <label class="item item-input">
+            <textarea rows="1" ng-model="question.title" elastic></textarea>
+        </label>
+    </div>
+    <div class="item clickable-divider item-icon-right" ng-click="options.editing = !options.editing ">
+        Choices
+        <i class="icon ion-edit"></i>
+    </div>
+    <div class="item">
+        <ion-list class="choice-list" show-delete="options.editing" show-reorder="options.editing">
+            <ion-item ng-repeat="choice in question.choices" item="item"  class="item-remove-animate item-text-wrap">
+                <span class="circle-number">{{$index + 1}}</span><textarea elastic rows="1" ng-model="choice.text"></textarea>
+                <ion-delete-button class="ion-minus-circled"
+                                   ng-click="onChoiceDelete(choice)">
+                </ion-delete-button>
+                <ion-reorder-button class="ion-navicon"
+                                    on-reorder="moveChoice(choice, $fromIndex, $toIndex)"></ion-reorder-button>
+            </ion-item>
+        </ion-list>
+        <button class="button button-calm button-clear icon-left pull-right ion-ios-plus-empty"
+                ng-click="addChoice()">Add Choice
+        </button>
+    </div>
+    <div class="item item-divider">
+        General Settings
+    </div>
+    <div class="item">
+        <ul class="list">
+            <li class="item item-toggle">
+                Required
+                <label class="toggle toggle-energized">
+                    <input type="checkbox" ng-model="question.required">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Randomize
+                <label class="toggle toggle-energized">
+                    <input type="checkbox" ng-model="question.randomize">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<ion-view view-title="Survey Stats">
+    <div class="bar bar-subheader bar-stable">
+        <button class="button button-clear icon-left ion-funnel icon-small">Filter</button>
+        <button class="button button-clear icon-right ion-ios-upload">Export</button>
+    </div>
+    <ion-content class="padding has-subheader" ng-class="{'has-footer' : platform != 'android'}">
+        <div class="card" ng-repeat="answer in answers">
+            <div ng-switch="answer.questionType">
+                <choice-stats ng-switch-when="multipleChoice" answer="answer" number="{{$index + 1}}" ui-sref="app.questionResults"></choice-stats>
+                <choice-stats ng-switch-when="sliderScale" answer="answer" number="{{$index + 1}}" ui-sref="app.questionResults"></choice-stats>
+                <rank-stats ng-switch-when="ranking" answer="answer" number="{{$index + 1}}" ui-sref="app.questionResults"></rank-stats>
+                <text-box-stats ng-switch-when="textBox" answer="answer" number="{{$index + 1}}" ui-sref="app.textResults"></text-box-stats>
+                <number-box-stats ng-switch-when="numberBox" answer="answer" number="{{$index + 1}}" ui-sref="app.questionResults"></number-box-stats>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

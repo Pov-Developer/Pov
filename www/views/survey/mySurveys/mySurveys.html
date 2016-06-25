@@ -1,0 +1,28 @@
+<ion-view title="My Surveys" hide-back-button="true">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ui-sref="app.createSurvey">
+            <span class="icon ion-plus-circled"></span>
+        </button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader bar-stable">
+        <div class="button-bar">
+            <button class="button button-clear button-calm icon-left" ng-class="surveyTypes[typeIndex].icon" ng-click="openTypePopover($event)">{{surveyTypes[typeIndex].name}}</button>
+            <button class="button button-clear"></button>
+            <button class="button button-clear button-calm icon-left" ng-class="surveyStatus[statusIndex].icon" ng-click="openStatusPopover($event)">{{surveyStatus[statusIndex].name}}</button>
+        </div>
+    </div>
+    <ion-content class="has-subheader" ng-class="{'has-footer' : platform != 'android'}" delegate-handle="mainScroll">
+        <ion-refresher pulling-text="Refresh..." on-refresh="doRefresh()"></ion-refresher>
+        <div class="card list survey-cards">
+            <a class="item item-avatar avatar-large"  ng-repeat="survey in surveys">
+                <img src="img/blueOnWhiteLogo.png">
+                <div  ng-switch="survey.status">
+                    <open-survey-item ng-switch-when="open" survey="survey"></open-survey-item>
+                    <completed-survey-item ng-switch-when="completed" survey="survey"></completed-survey-item>
+                    <draft-survey-item ng-switch-when="draft" ng-click="editSurvey(survey)" survey="survey"></draft-survey-item>
+                </div>
+            </a>
+        </div>
+        <no-results ng-show="surveys.length == 0" message='No surveys found'></no-results>
+    </ion-content>
+</ion-view>

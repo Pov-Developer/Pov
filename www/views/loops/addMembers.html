@@ -1,0 +1,13 @@
+<ion-modal-view>
+    <div class="bar bar-header bar-energized item-input-inset">
+        <div class="h1 title">Add Members</div>
+        <button class="button button-clear" ng-click="closeMembersModal()">
+            Close
+        </button>
+    </div>
+    <ion-content>
+        <ion-list>
+            <ion-checkbox ng-repeat="friend in friends | orderBy: 'firstName' | filter:search" ng-model="friend.selected">{{friend.firstName}}</ion-checkbox>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

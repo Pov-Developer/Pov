@@ -1,0 +1,63 @@
+<ion-view title="Sign Up">
+    <ion-nav-bar class="bar-calm">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content class="padding">
+        <form name="signUpForm" novalidate ng-submit="signUp(signUpForm)">
+            <div class="card">
+                <label class="item item-input item-stacked-label"
+                       ng-class="{'has-error': signUpForm.email.$invalid && signUpForm.email.$dirty || signUpForm.$submitted, 'has-success': signUpForm.email.$valid && signUpForm.email.$dirty}">
+                    <span class="input-label">email</span>
+                    <input type="email" name="email" ng-model="user.email" required>
+                </label>
+                <label class="item item-input item-stacked-label"
+                       ng-class="{'has-error': (signUpForm.password.$invalid && userForm.password.$dirty || signUpForm.$submitted) && !passwordMatch, 'has-success': (signUpForm.password.$valid && signUpForm.password.$dirty) && passwordMatch}">
+                    <span class="input-label">password</span>
+                    <input type="password" name="password" ng-model="user.password" required/>
+                </label>
+                <label class="item item-input item-stacked-label"
+                       ng-class="{'has-error': (signUpForm.password.$invalid && userForm.password.$dirty || signUpForm.$submitted) && !passwordMatch, 'has-success': (signUpForm.password.$valid && signUpForm.password.$dirty) && passwordMatch}">
+                    <span class="input-label">password</span>
+                    <input type="password" name="confirmedPassword" ng-model="user.confirmedPassword" required>
+                </label>
+                <label class="item item-input item-stacked-label"
+                       ng-class="{'has-error': signUpForm.firstName.$invalid && userForm.firstName.$dirty || signUpForm.$submitted, 'has-success': signUpForm.firstName.$valid && signUpForm.firstName.$dirty}">
+                    <span class="input-label">first name</span>
+                    <input type="text" name="firstName" ng-model="user.firstName" required>
+                </label>
+                <label class="item item-input item-stacked-label"
+                       ng-class="{'has-error': signUpForm.lastName.$invalid && userForm.lastName.$dirty || signUpForm.$submitted, 'has-success': signUpForm.lastName.$valid && signUpForm.lastName.$dirty}">
+                    <span class="input-label">last name</span>
+                    <input type="text" name="lastName" ng-model="user.lastName" required>
+                </label>
+                <label class="item item-input item-select"
+                       ng-class="{'has-error': signUpForm.gender.$invalid && userForm.gender.$dirty || signUpForm.$submitted, 'has-success': signUpForm.gender.$valid && signUpForm.gender.$dirty}">
+                    <div class="input-label">
+                        Gender
+                    </div>
+                    <select name="gender" ng-model="user.gender" required>
+                        <option>M</option>
+                        <option>F</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select"
+                       ng-class="{'has-error': signUpForm.race.$invalid && userForm.race.$dirty || signUpForm.$submitted, 'has-success': signUpForm.race.$valid && signUpForm.race.$dirty}">
+                    <div class="input-label">
+                        Race
+                    </div>
+                    <select name="race" ng-model="user.race" required>
+                        <option>Jedi</option>
+                        <option>Undead</option>
+                        <option>Vampire</option>
+                    </select>
+                </label>
+                <label class="item item-input item-stacked-label"
+                       ng-class="{'has-error': signUpForm.dateOfBirth.$invalid && userForm.dateOfBirth.$dirty || signUpForm.$submitted, 'has-success': signUpForm.dateOfBirth.$valid && signUpForm.dateOfBirth.$dirty}">
+                    <span class="input-label">date of birth</span>
+                    <input type="date" name="dateOfBirth" ng-model="user.dateOfBirth" required>
+                </label>
+            </div>
+            <input type="submit" class="button button-block button-energized" value="Sign Up"/>
+        </form>
+    </ion-content>
+</ion-view>

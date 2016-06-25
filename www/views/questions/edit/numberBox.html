@@ -1,0 +1,41 @@
+<div class="card card-form">
+    <div class="item item-divider">
+        Question
+    </div>
+    <div class="item">
+        <label class="item item-input">
+            <textarea rows="1" ng-model="question.title" elastic></textarea>
+        </label>
+    </div>
+    <div class="item item-divider">
+        Numbers
+    </div>
+    <div class="item">
+        <span class="textbox-character-label">Min. Number</span>
+        <label class="item item-input pull-right small-input">
+            <input type="tel" ng-model="question.minNumber">
+        </label>
+        <div class="clearfix padding"></div>
+        <span class="textbox-character-label">Max. Number</span>
+        <label class="item item-input pull-right small-input">
+            <input type="tel" ng-model="question.maxNumber">
+        </label>
+    </div>
+    <div class="item item-divider">
+        General Settings
+    </div>
+    <div class="item">
+        <ul class="list">
+            <li class="item item-toggle">
+                Required
+                <label class="toggle toggle-energized">
+                    <input type="checkbox" ng-model="question.required">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>

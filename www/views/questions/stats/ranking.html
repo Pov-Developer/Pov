@@ -1,0 +1,9 @@
+<div class="item item-text-wrap item-icon-right icon-small">
+    <i class="icon fa fa-list-ol"></i>
+    <h2><span class="circle-number">{{number}}</span>{{answer.text}}</h2>
+</div>
+<div class="item item-text-wrap">
+    <div class="rank-list">
+        <h2 ng-repeat="rank in answer.choices" class="no-wrap"><span>{{rank.avg}}</span> {{rank.name}}</h2>
+    </div>
+</div>

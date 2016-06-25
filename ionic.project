@@ -1,0 +1,12 @@
+{
+  "name": "Pov",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ],
+  "app_id": "8c44356e"
+}

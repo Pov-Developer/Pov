@@ -1,0 +1,7 @@
+<label class="item item-input">
+    <textarea rows="7" ng-model="question.text" placeholder="Answer" maxlength="{{question.maxChars}}"></textarea>
+</label>
+<p class="label-subdued text-right">
+    <span>{{question.maxChars - question.text.length}} chars. left</span><br/>
+    <span>Text length: {{question.minChars}}-{{question.maxChars}}</span>
+</p>

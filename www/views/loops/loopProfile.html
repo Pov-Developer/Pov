@@ -1,0 +1,30 @@
+<ion-view view-title="Loop">
+    <ion-content ng-class="{'has-footer' : platform != 'android'}" delegate-handle="mainScroll">
+        <ion-slide-box class="profile-header calm-background" on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <div id="profile-slide-home">
+                    <img class="circle-border" src="img/falcons.png">
+
+                    <h3>Atlanta Falcons</h3>
+
+                    <p>152,000 Members &middot Since 11/20/2015</p>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="profile-slide-info padding">
+                    <p>We are the Atlanta Falcons group. Here you will receive surveys about the Atlanta Falcons.</p>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+        <tabs tabs="tabs" current-tab="currentTab"></tabs>
+        <div ng-switch="currentTab.title">
+            <survey-list ng-switch-when="Surveys" surveys="currentTab.content"></survey-list>
+            <div ng-switch-when="Members" class="list list-top-borderless">
+                <div class="item item-avatar" ui-sref="app.profile" ng-repeat="member in currentTab.content">
+                    <img ng-src="{{member.img}}">
+                    <h2>{{member.firstName}}</h2>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

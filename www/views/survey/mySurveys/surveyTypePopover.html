@@ -1,0 +1,7 @@
+<ion-popover-view class="fit">
+    <ion-content>
+        <ul class="list">
+            <li class="item item-icon-left" ng-repeat="type in surveyTypes" ng-click="changeType($index)"><i class="icon" ng-class="type.icon"></i>{{type.name}}</li>
+        </ul>
+    </ion-content>
+</ion-popover-view>

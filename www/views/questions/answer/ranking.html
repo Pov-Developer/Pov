@@ -1,0 +1,11 @@
+<ion-list class="item-list" show-reorder="true">
+    <ion-item ng-repeat="choice in question.choices" class="item-ranking-choices">
+        <div class="item-ranking-header">
+            <h1>{{$index + 1}}</h1>
+        </div>
+        <div class="item-ranking-text item-text-wrap">
+            <p>{{choice.text}}</p>
+        </div>
+        <ion-reorder-button class="ion-navicon" on-reorder="moveChoice(choice, $fromIndex, $toIndex)"></ion-reorder-button>
+    </ion-item>
+</ion-list>

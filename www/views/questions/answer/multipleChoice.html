@@ -1,0 +1,3 @@
+<ion-list class="item-list">
+    <ion-checkbox class="checkbox-energized"  ng-repeat="choice in question.choices" ng-model="choice.checked" ng-change="checkMultipleSelection(choice)">{{choice.text}}</ion-checkbox>
+</ion-list>

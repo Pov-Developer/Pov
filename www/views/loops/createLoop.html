@@ -1,0 +1,65 @@
+<ion-view view-title="Create Loop">
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+    </ion-nav-buttons>
+    <ion-content class="padding" ng-class="{'has-footer' : platform != 'android'}">
+        <div class="card card-form">
+            <div class="item item-divider">
+                General Information
+            </div>
+            <div class="item">
+                <h2 class="form-title require">Name</h2>
+                <label class="item item-input">
+                    <textarea rows="1" elastic></textarea>
+                </label>
+
+                <h2 class="form-title require">Description</h2>
+                <label class="item item-input">
+                    <textarea rows="1" elastic></textarea>
+                </label>
+            </div>
+            <div class="item item-divider">
+                Picture
+            </div>
+            <div class="item">
+                <div class="center-image circle-border add-photo" ng-click="choosePhoto()">
+                    <p ng-if="!imgURI"> Tap to add<br>Picture</p>
+                    <img ng-if="imgURI" class="center-image circle-border add-photo" ng-src="{{imgURI}}"/>
+                </div>
+            </div>
+            <div class="item item-divider">
+                Settings
+            </div>
+            <div class="item item-toggle">
+                Private
+                <label class="toggle toggle-energized">
+                    <input type="checkbox">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+            <div class="item item-icon-right" ng-click="openMembersModal()">
+                Add Members
+                <i class="icon ion-android-person-add"></i>
+            </div>
+            <div class="item">
+                <div class="list">
+                    <div class="item item-button-right" ng-repeat="friend in friends" ng-if="friend.selected">
+                        {{friend.firstName}} {{friend.lastName}}
+                        <button class="button button-clear button-energized" ng-click="friend.selected = false">
+                            <i class="icon ion-android-cancel"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <button class="button button-block button-energized" ui-sref="app.loops">
+                    Create Loop
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

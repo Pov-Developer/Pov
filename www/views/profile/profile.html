@@ -1,0 +1,38 @@
+<ion-view view-title="Profile">
+    <ion-content ng-class="{'has-footer' : platform != 'android'}" delegate-handle="mainScroll">
+        <ion-slide-box class="profile-header calm-background" on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <div id="profile-slide-home">
+                    <img class="circle-border" src="img/30rock.jpg">
+
+                    <h3>John Cena</h3>
+
+                    <p>Age 22 &middot Sex M</p>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="profile-slide-info padding">
+                    <p>Email: john@cena</p>
+
+                    <p>Phone: 787-471-1245</p>
+
+                    <p>Race: White</p>
+
+                    <p>School: Georgia Tech</p>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="profile-slide-info padding">
+                    <p>Living in House: Yes</p>
+
+                    <p>Meal Plan: Full Meal Plan</p>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+        <tabs tabs="tabs" current-tab="currentTab"></tabs>
+        <div ng-switch="currentTab.title">
+            <loop-list ng-switch-when="Loops Subscribed" loops="currentTab.content"></loop-list>
+            <survey-list ng-switch-default surveys="currentTab.content"></survey-list>
+        </div>
+    </ion-content>
+</ion-view>

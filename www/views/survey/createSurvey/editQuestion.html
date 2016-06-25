@@ -1,0 +1,24 @@
+<ion-view title="Question {{questionNumber + 1}}">
+    <ion-nav-bar class="bar-calm">
+        <ion-nav-back-button></ion-nav-back-button>
+        <ion-nav-buttons side="right">
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <div class="bar bar-subheader bar-stable">
+        <h2 class="title">{{question.questionType | splitCamelCase}}</h2>
+    </div>
+    <div class="bar bar-stable bar-footer big-bar-footer">
+        <div class="button-bar">
+            <div class="button button-energized" ng-click="saveQuestion()">Save</div>
+        </div>
+    </div>
+    <ion-content class="padding has-subheader has-big-bar-footer">
+        <div ng-switch="question.questionType">
+            <edit-multiple-choice ng-switch-when="ranking" question="question"></edit-multiple-choice>
+            <edit-text-box ng-switch-when="textBox" question="question"></edit-text-box>
+            <edit-slider-scale ng-switch-when="sliderScale" question="question"></edit-slider-scale>
+            <edit-multiple-choice ng-switch-when="multipleChoice" question="question"></edit-multiple-choice>
+            <edit-number-box ng-switch-when="numberBox" question="question"></edit-number-box>
+        </div>
+    </ion-content>
+</ion-view>

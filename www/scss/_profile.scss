@@ -1,0 +1,85 @@
+$font-profile-color: #fff;
+$profile-header-height: 180px;
+
+//================================================================================
+// Slider
+//================================================================================
+
+.profile-header {
+  height: $profile-header-height;
+  #profile-slide-home {
+    text-align: center;
+    img {
+      margin-top: 5px;
+      width: 90px;
+      height: 90px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2px solid #fff;
+    }
+    h3 {
+      color: $font-profile-color;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+    p {
+      color: $font-profile-color;
+      font-size: 12px;
+    }
+  }
+  .profile-slide-info {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 100vw;
+    height: $profile-header-height - 25;
+    p {
+      color: $font-profile-color;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.slider-pager {
+  bottom: 10px;
+}
+
+.slider-pager .slider-pager-page {
+  color: $font-profile-color;
+  font-size: 80%;
+}
+
+//================================================================================
+// Tabs
+//================================================================================
+
+.nav-padding {
+  padding: 0px 5px;
+}
+
+.main-nav ul li div h4 {
+  font-weight: 300;
+  margin: 5px;
+  color: $calm;
+}
+
+.main-nav ul li.active div h4 {
+  color: $energized;
+}
+
+.main-nav ul li div p {
+  margin: 0px 5px 3px 5px;
+  font-size: 13px;
+}
+
+.loop-cards .item {
+  min-height: 86px;
+}
+
+.person-count-stats{
+  @extend .item-hour-stats;
+  padding-left: 0px;
+  right: 0px;
+}

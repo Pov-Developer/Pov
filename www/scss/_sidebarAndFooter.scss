@@ -1,0 +1,36 @@
+/* Modify generated item-content by ion-item */
+.default-sidebar-item .item-content {
+  padding: 16px;
+}
+
+.default-sidebar-item {
+  border-style: none;
+}
+
+.barcode-circle {
+  position: absolute;
+  display: inline-block;
+  top: -10px;
+  margin-left: -37px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50px;
+  padding-top: 5px;
+  font-size: 12px;
+  color: $calm;
+  line-height: 15px;
+  text-align: center;
+  background: #ffffff;
+  border: 3px solid $calm;
+}
+
+/* Android only */
+.sidebar-result-message {
+  margin-top: 10vh !important;
+  font-size: 32px;
+  line-height: 1.5;
+  .ion-sad-outline{
+
+    font-size: 52px;
+  }
+}

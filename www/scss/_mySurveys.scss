@@ -1,0 +1,139 @@
+.main-nav ul li a {
+  line-height: 2.3em;
+}
+
+.survey-cards .item {
+  min-height: 79px;
+}
+
+//================================================================================
+// Drafts
+//================================================================================
+
+.item-hour-stats {
+  position: absolute;
+  height: 65%;
+  top: 13px;
+  right: 8px;
+  padding-left: 5px;
+  border-left: 1px solid rgba(221, 221, 221, 0.38);
+  p {
+    font-size: 12px;
+  }
+}
+
+.left-text-content {
+  width: 85%;
+  h2 {
+    width: inherit;
+  }
+  p {
+    @extend .description-content
+  }
+}
+
+.item-hour-background-color {
+  background: $energized;
+  border: 2px solid $calm;
+}
+
+.description-content {
+  font-size: 12px;
+  display: -webkit-box;
+  overflow: hidden;
+
+  line-height: 1.4;
+  white-space: normal;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+//================================================================================
+// Open
+//================================================================================
+
+.open-content {
+  p {
+    @extend .description-content
+  }
+}
+
+.retired-content {
+  p {
+    @extend .description-content
+  }
+}
+
+.item .subdued-container {
+  font-size: 12px;
+  padding-right: 10px;
+  color: #888;
+}
+
+.progress-bar {
+  background-color: whiteSmoke;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+
+  width: 100%;
+  height: 5px;
+  margin-top: 5px;
+
+  position: relative;
+  display: block;
+}
+
+.progress-bar > span {
+  background-color: $energized;
+  border-radius: 2px;
+  height: 5px;
+
+  display: block;
+}
+
+// Not used
+.progress-bar-vertical {
+  position: absolute !important;
+  height: 65% !important;
+  top: 12px;
+  right: 8px;
+  background-color: whiteSmoke;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+
+  width: 5px;
+  margin-top: 3px;
+
+  position: relative;
+  display: block;
+}
+
+.progress-bar-vertical > span {
+  position: absolute;
+  bottom: 0px;
+  background-color: $energized;
+  border-radius: 2px;
+  width: 5px;
+
+  display: block;
+}
+
+.item-hour-stats2 {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 53px;
+  height: 53px;
+  span {
+    position: relative;
+    display: block;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    line-height: 1.7;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}

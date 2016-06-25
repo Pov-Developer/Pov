@@ -1,0 +1,11 @@
+<div class="main-nav nav-padding">
+    <ul>
+        <li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.title)}"
+            ng-click="onClickTab($index)">
+            <div>
+                <h4>{{tab.content.length}}</h4>
+                <p>{{tab.title}}</p>
+            </div>
+        </li>
+    </ul>
+</div>

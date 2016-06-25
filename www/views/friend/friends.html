@@ -1,0 +1,36 @@
+<ion-view view-title="Friends">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" menu-toggle="left" ng-if="platform=='android'">
+            <span class="icon ion-navicon"></span>
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ui-sref="app.addFriend">
+            <span class="icon fa fa-user-plus"></span>
+        </button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader bar-default item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" ng-model="friendsFilter">
+        </label>
+    </div>
+    <ion-content class="has-subheader" ng-class="{'has-footer' : platform != 'android'}">
+        <ion-list>
+            <div class="item item-divider" ng-if="!friendsFilter">
+                Top Friends
+            </div>
+            <ion-item ng-repeat="friend in topFriends |  orderBy : 'firstName'" class="item item-avatar" ng-if="!friendsFilter" ui-sref="app.profile">
+                <img ng-src="{{friend.img}}">
+                <h2>{{friend.firstName}}</h2>
+            </ion-item>
+            <div class="item item-divider" ng-if="!friendsFilter">
+                All Friends
+            </div>
+            <ion-item auto-list-divider auto-list-divider-value="{{friend.firstName}}" ng-repeat="friend in friends |  orderBy : 'firstName'" class="item item-avatar" ui-sref="app.profile">
+                <img ng-src="{{friend.img}}">
+                <h2>{{friend.firstName}}</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

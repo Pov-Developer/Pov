@@ -1,0 +1,41 @@
+/* Image styles */
+
+.center-image {
+  display: block;
+  margin: auto;
+}
+
+.circle-border {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.logo-login {
+  max-width: 100%;
+  max-height: 45vh;
+}
+
+.logo-sidebar {
+  max-width: 100%;
+  max-height: 35vh;
+}
+
+#loop-create-img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ddd;
+}
+
+.add-photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ddd;
+  p{
+    width: 100%;
+    text-align: center;
+  }
+}

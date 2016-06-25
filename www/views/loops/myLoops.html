@@ -1,0 +1,19 @@
+<ion-view view-title="My Loops" hide-back-button="true">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ui-sref="app.createLoop">
+            <span class="icon ion-plus-circled"></span>
+        </button>
+    </ion-nav-buttons>
+        <div class="bar bar-subheader">
+            <div class="main-nav">
+                <ul>
+                    <li class="nav-weight nav-big-font" ng-repeat="tab in locationTabs" ng-class="{active:isActiveTab(tab)}"
+                        ng-click="onClickTab(tab)"><a>{{tab}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <ion-content class="has-subheader" ng-class="{'has-footer' : platform != 'android'}" delegate-handle="mainScroll">
+            <loop-list loops="loops"></loop-list>
+        </ion-content>
+    </ion-view>
+</ion-view>

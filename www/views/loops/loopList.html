@@ -1,0 +1,21 @@
+<div class="card list loop-cards" ng-if="loops.length > 0">
+    <div ng-repeat="loop in loops" class="item item-avatar avatar-large" ui-sref="app.loopProfile({loopId: {{loop.loopId}} })">
+        <img ng-src="{{loop.img}}">
+
+        <div class="left-text-content">
+            <h2>{{loop.name}}</h2>
+
+            <p class="description-content">{{loop.description}}</p>
+        </div>
+        <div class="person-count-stats text-center">
+            <button class="button button-medium button-clear">
+                <i class="fa fa-user fa-lg calm"></i>
+            </button>
+            <p>{{loop.numberOfMembers}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="card" ng-if="loops.length == 0">
+    <div class="item text-center"><p>User has not subscribed to any Loops</p></div>
+</div>

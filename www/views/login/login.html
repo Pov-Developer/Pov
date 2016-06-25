@@ -1,0 +1,26 @@
+<ion-nav-view>
+    <ion-view>
+        <div class="bar bar-header">
+            <a class="button button-icon calm ion-home" href="#/app/home" nav-direction="forward"></a>
+            <a class="button button-clear button-calm " href="#/signUp">Sign Up</a>
+        </div>
+        <ion-content class="padding has-header" overflow-scroll="true">
+            <img class="logo-login center-image" src="img/blueOnWhiteLogo.png">
+            <div class="footer">
+                <form name="userForm" novalidate ng-submit="login(userForm)">
+                    <div class="card list list-inset">
+                        <label class="item item-input" ng-class="{'has-error': userForm.email.$invalid && userForm.email.$dirty || userForm.$submitted, 'has-success': userForm.email.$valid && userForm.email.$dirty}">
+                            <input name="email" type="email" placeholder="email" required  ng-model="user.email">
+                        </label>
+                        <label class="item item-input" ng-class="{'has-error': userForm.password.$invalid && userForm.password.$dirty || userForm.$submitted, 'has-success': userForm.password.$valid && userForm.password.$dirty}">
+                            <input name="password" type="password" placeholder="password" required  ng-model="user.password">
+                        </label>
+                    </div>
+                    <div class="padding">
+                        <input type="submit" class="button button-block button-energized" value="Login"/>
+                    </div>
+                </form>
+            </div>
+        </ion-content>
+    </ion-view>
+</ion-nav-view>

@@ -1,0 +1,21 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center" class="bar-calm">
+        <div class="buttons">
+            <button class="button button-clear button-icon ion-android-close" ng-click="closeLoopModal()"></button>
+        </div>
+        <h1 class="title">Loop Assignment</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <ul class="list">
+            <li class="item item-checkbox" ng-repeat="loop in loopsCopy">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="loop.checked">
+                </label>
+                {{loop.name}}
+            </li>
+        </ul>
+        <button class="button button-full button-energized" ng-click="saveLoopsAssign()">
+            Save
+        </button>
+    </ion-content>
+</ion-modal-view>

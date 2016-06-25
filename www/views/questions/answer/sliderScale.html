@@ -1,0 +1,10 @@
+<div class="item-slider-scale">
+    <div class="text-center">
+        <h2>{{question.scale.steps[question.scale.selected - 1].text}}</h2>
+    </div>
+    <div class="range range-energized">
+        1
+        <input ng-model="question.scale.selected" type="range" min="1" max="{{question.scale.steps.length}}">
+        {{question.scale.steps.length}}
+    </div>
+</div>

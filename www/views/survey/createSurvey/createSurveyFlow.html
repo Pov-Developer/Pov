@@ -1,0 +1,29 @@
+<ion-view title="Question {{questionNumber}}">
+    <ion-nav-bar class="bar-calm">
+        <ion-nav-buttons side="left">
+            <button ng-click="exitSurvey()" class="button button-clear button-icon ion-android-close"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button ng-show="questionNumber > 1 && !back" ng-click="deleteQuestion()"
+                    class="button button-clear button-icon ion-trash-a"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <div class="bar bar-stable bar-footer big-bar-footer">
+        <div class="button-bar">
+            <div class="button button-energized" ng-click="addQuestion()">Add Question</div>
+            <a class="button button-calm" ng-click="done()">Done</a>
+        </div>
+    </div>
+    <div class="bar bar-subheader bar-stable">
+        <h2 class="title">{{question.questionType | splitCamelCase}}</h2>
+    </div>
+    <ion-content class="padding has-subheader has-big-bar-footer" id="question-content" ng-class="{ 'next': next, 'back': back}">
+        <div ng-switch="question.questionType">
+            <edit-ranking ng-switch-when="ranking" question="question"></edit-ranking>
+            <edit-text-box ng-switch-when="textBox" question="question"></edit-text-box>
+            <edit-slider-scale ng-switch-when="sliderScale" question="question"></edit-slider-scale>
+            <edit-multiple-choice ng-switch-when="multipleChoice" question="question"></edit-multiple-choice>
+            <edit-number-box ng-switch-when="numberBox" question="question"></edit-number-box>
+        </div>
+    </ion-content>
+</ion-view>

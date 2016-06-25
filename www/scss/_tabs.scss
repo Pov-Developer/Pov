@@ -1,0 +1,49 @@
+.main-nav {
+  width: 100%;
+}
+
+.main-nav ul {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+.main-nav ul li {
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+}
+
+.main-nav ul li a, .main-nav ul li div {
+  color: $calm;
+  display: block;
+  width: 100%;
+}
+
+.nav-weight{
+  font-weight: 500;
+}
+
+.nav-big-font{
+  font-size: 15px;
+}
+
+.main-nav ul li.active {
+  border-bottom: 1px solid $energized;
+  a, div {
+    color: $energized;
+  }
+}

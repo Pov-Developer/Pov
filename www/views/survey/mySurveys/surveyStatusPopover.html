@@ -1,0 +1,7 @@
+<ion-popover-view class="fit">
+    <ion-content>
+        <ul class="list">
+            <li class="item item-icon-left" ng-repeat="status in surveyStatus" ng-click="changeStatus($index)"><i class="icon" ng-class="status.icon"></i>{{status.name}}</li>
+        </ul>
+    </ion-content>
+</ion-popover-view>
