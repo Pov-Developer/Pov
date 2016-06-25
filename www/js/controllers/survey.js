@@ -1,6 +1,6 @@
 angular.module('loop.controllers.survey', [])
-	.controller('surveyFlowController', ['$scope', '$stateParams', '$ionicHistory', 'PopupService', '$ionicLoading', '$timeout', '$state', '$ionicModal', '$ionicHistory', 'CreateSurveyService', 'Survey', 'SurveyTakingService', 'SharedSurvey', 'survey',
-		function ($scope, $stateParams, $ionicHistory, PopupService, $ionicLoading, $timeout, $state, $ionicModal, $ionicHistory, CreateSurveyService, Survey, SurveyTakingService, SharedSurvey, survey) {
+	.controller('surveyFlowController', ['$scope', '$stateParams', '$ionicHistory', 'PopupService', '$ionicLoading', '$timeout', '$state', '$ionicModal', '$ionicHistory', 'CreateSurveyService', 'Survey', 'SurveyTakingService', 'SharedSurvey', 'survey', 'RequestService',
+		function ($scope, $stateParams, $ionicHistory, PopupService, $ionicLoading, $timeout, $state, $ionicModal, $ionicHistory, CreateSurveyService, Survey, SurveyTakingService, SharedSurvey, survey, RequestService) {
 			var questions = survey.questions;
 			$scope.currentIndex = 0;
 			$scope.numOfQuestions = questions.length;
@@ -29,15 +29,27 @@ angular.module('loop.controllers.survey', [])
 					PopupService.alertCustom('Answer Invalid', result);
 				}
 				else {
-					$ionicLoading.show({
-						template: '<ion-spinner icon="crescent"></ion-spinner>Submiting survey...'
-					});
-					console.log(questions);
-					$timeout(function () {
+					// $ionicLoading.show({
+					// 	template: '<ion-spinner icon="crescent"></ion-spinner>Submiting survey...'
+					// });
+					console.log(questions)
+					RequestService.post('surveys/' + $stateParams.surveyId + '/answer', questions, true)
+						.then(function (res) {
 							$ionicLoading.hide();
 							PopupService.show('surveySubmitted');
-						},
-						2000);
+						})
+						.catch(function (res, status, headers, config) {
+							PopupService.alert("genericError");
+						});
+					// $ionicLoading.show({
+					// 	template: '<ion-spinner icon="crescent"></ion-spinner>Submiting survey...'
+					// });
+					// console.log(questions);
+					// $timeout(function () {
+					// 		$ionicLoading.hide();
+					// 		PopupService.show('surveySubmitted');
+					// 	},
+					// 	2000);
 				}
 			};
 

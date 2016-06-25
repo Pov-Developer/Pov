@@ -14,7 +14,10 @@ angular.module('loop.controllers.createSurvey', [])
 			};
 
 			$scope.surveyInfo.loops = loops;
-			$scope.surveyInfo.loops.unshift({name: "Public", loopId: 1, checked: true});
+			var publicLoop = $scope.surveyInfo.loops.find(function(loop){
+				return loop.loopId == 1;
+			});
+			publicLoop.checked = true;
 			$scope.surveyInfo.attributes = attributes;
 
 			$scope.startSurvey = function () {
