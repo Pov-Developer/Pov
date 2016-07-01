@@ -299,7 +299,15 @@ angular.module('loop.directives.survey', [])
 				question: "="
 			},
 			controller: function ($scope) {
-				console.log($scope.question.scale.steps)
+				$scope.question.scale.steps.sort(function (a, b) {
+					if (a.choiceId < b.choiceId) {
+						return 1;
+					}
+					if (a.choiceId > b.choiceId) {
+						return -1;
+					}
+					return 0;
+				});
 				$scope.question.scale.steps = $scope.question.scale.steps.reverse();
 				$scope.question.scale.selected = Math.round($scope.question.scale.steps.length / 2);
 
