@@ -11,12 +11,12 @@
             <div class="item">
                 <h2 class="form-title require">Name</h2>
                 <label class="item item-input">
-                    <textarea rows="1" elastic></textarea>
+                    <textarea rows="1" elastic ng-model="loop.loopName"></textarea>
                 </label>
 
                 <h2 class="form-title require">Description</h2>
                 <label class="item item-input">
-                    <textarea rows="1" elastic></textarea>
+                    <textarea rows="1" elastic ng-model="loop.loopDescription"></textarea>
                 </label>
             </div>
             <div class="item item-divider">
@@ -34,7 +34,7 @@
             <div class="item item-toggle">
                 Private
                 <label class="toggle toggle-energized">
-                    <input type="checkbox">
+                    <input type="checkbox" ng-model="loop.isPrivate">
 
                     <div class="track">
                         <div class="handle"></div>
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="item">
-                <button class="button button-block button-energized" ui-sref="app.loops">
+                <button class="button button-block button-energized" ng-click="createLoop()">
                     Create Loop
                 </button>
             </div>

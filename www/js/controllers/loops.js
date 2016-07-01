@@ -40,8 +40,10 @@ App.controller('loopProfileController', ['$scope', 'Survey', 'Friend', function 
 
 }]);
 
-App.controller('createLoopController', ['$scope', '$ionicModal', '$cordovaCamera', 'Friend', function ($scope, $ionicModal, $cordovaCamera, Friend) {
+App.controller('createLoopController', ['$scope', '$ionicModal', '$cordovaCamera', 'Friend', 'RequestService',
+	function ($scope, $ionicModal, $cordovaCamera, Friend, RequestService) {
 
+	$scope.loop = {};
 	$scope.friends = Friend.getFriends();
 	$scope.imgURI = "";
 
@@ -78,6 +80,16 @@ App.controller('createLoopController', ['$scope', '$ionicModal', '$cordovaCamera
 		}, function (err) {
 			// An error occured. Show a message to the user
 		});
+	}
+
+	$scope.createLoop = function(){
+		RequestService.post('loops', $scope.loop, true)
+			.then(function (res) {
+				PopupService.show("surveyCreated");
+			})
+			.catch(function (res, status, headers, config) {
+				PopupService.alert("genericError");
+			});
 	}
 
 }]);
