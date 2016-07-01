@@ -298,19 +298,20 @@ angular.module('loop.directives.survey', [])
 			scope: {
 				question: "="
 			},
-			controller: function ($scope) {
-				$scope.question.scale.steps.sort(function (a, b) {
-					if (a.choiceId < b.choiceId) {
-						return 1;
-					}
-					if (a.choiceId > b.choiceId) {
-						return -1;
-					}
-					return 0;
+			link: function($scope, element, attrs) {
+				$scope.$watch('question', function(newVal, oldVal){
+					$scope.question.scale.steps.sort(function (a, b) {
+						if (a.choiceId < b.choiceId) {
+							return 1;
+						}
+						if (a.choiceId > b.choiceId) {
+							return -1;
+						}
+						return 0;
+					});
+					$scope.question.scale.steps.reverse();
+					$scope.question.scale.selected = Math.round($scope.question.scale.steps.length / 2);
 				});
-				$scope.question.scale.steps = $scope.question.scale.steps.reverse();
-				$scope.question.scale.selected = Math.round($scope.question.scale.steps.length / 2);
-
 			}
 		}
 	}])

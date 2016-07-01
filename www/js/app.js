@@ -23,8 +23,8 @@ angular.module('App',
 		});
 	})
 	.constant("constants", {
-		// "url": "http://45.55.148.67:5000/"
-		"url": "http://localhost:5000/"
+		"url": "http://45.55.148.67:5000/"
+		// "url": "http://localhost:5000/"
 	});
 
 function initApp($ionicPlatform, $rootScope, $state, $ionicLoading, AuthService, PopupService) {
