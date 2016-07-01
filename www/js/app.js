@@ -262,10 +262,10 @@ function initRoutes($stateProvider, $urlRouterProvider) {
 			templateUrl: 'views/login/login.html',
 			controller: 'loginController'
 		})
-		.state('signUp', {
-			url: '/signUp',
+		.state('signup', {
+			url: '/signup',
 			cache: false,
-			templateUrl: 'views/login/signUp.html',
+			templateUrl: 'views/login/signup.html',
 			controller: 'signupController'
 		});
 
